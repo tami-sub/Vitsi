@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.vitsi.models.upload.Progress"/>
+        <import type="com.example.vitsi.presentation.ui.upload.post_video.PostVideoViewModel" />
+
+        <variable
+            name="viewModel"
+            type="PostVideoViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        tools:context=".presentation.ui.upload.post_video.PostVideoFragment">
+
+        <TextView
+            android:id="@+id/sign_up_plain_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/create_audio"
+            android:textColor="@color/dark_black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:contentDescription="@string/back_button"
+            app:layout_constraintBottom_toBottomOf="@+id/sign_up_plain_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sign_up_plain_text"
+            app:srcCompat="@drawable/ic_arrow_back" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/video_thumbnail"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="12dp"
+            app:shapeAppearance="@style/roundedImageView"
+            android:contentDescription="@string/audio_thumbnail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_plain_text"
+            tools:srcCompat="@drawable/ic_launcher_background" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/loading_bar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:indeterminate="true"
+            app:indicatorColor="@color/pinkBtnBackground"
+            app:layout_constraintBottom_toBottomOf="@+id/video_thumbnail"
+            app:layout_constraintEnd_toEndOf="@+id/video_thumbnail"
+            app:layout_constraintStart_toStartOf="@+id/video_thumbnail"
+            app:layout_constraintTop_toTopOf="@+id/video_thumbnail"
+            app:trackColor="@color/light_grey" />
+
+        <EditText
+            android:id="@+id/description_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="2dp"
+            android:background="@android:color/white"
+            android:ems="10"
+            android:text="@={viewModel.liveDescription}"
+            android:hint="@string/describe_your_audio"
+            android:inputType="text"
+            android:maxLength="150"
+            android:textColor="@color/dark_black"
+            android:textColorHint="@color/medium_grey"
+            app:layout_constraintBottom_toTopOf="@+id/hashtag_btn"
+            app:layout_constraintEnd_toStartOf="@+id/video_thumbnail"
+            app:layout_constraintStart_toStartOf="@+id/back_btn"
+            app:layout_constraintTop_toTopOf="@+id/video_thumbnail" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hashtag_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@string/hashtags"
+            android:textAllCaps="false"
+            app:backgroundTint="@android:color/white"
+            app:cornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/video_thumbnail"
+            app:layout_constraintStart_toStartOf="@+id/description_text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/friends_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:padding="4dp"
+            android:text="@string/friends"
+            android:textAllCaps="false"
+            app:backgroundTint="@android:color/white"
+            app:cornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/video_thumbnail"
+            app:layout_constraintStart_toEndOf="@+id/hashtag_btn" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/light_grey"
+            app:layout_constraintEnd_toEndOf="@+id/video_thumbnail"
+            app:layout_constraintStart_toStartOf="@+id/hashtag_btn"
+            app:layout_constraintTop_toBottomOf="@+id/friends_btn" />
+
+        <Button
+            android:id="@+id/post_btn"
+            android:layout_width="278dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="96dp"
+            android:clickable="@{viewModel.uploadStatus != Progress.ACTIVE}"
+            android:text="@string/post"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/pinkBtnBackground"
+            app:changeVisibility="@{viewModel.uploadStatus != Progress.ACTIVE}"
+            app:cornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line" />
+
+
+        <include
+            android:id="@+id/loading_layout"
+            tools:visibility="gone"
+            layout="@layout/loading_layout"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

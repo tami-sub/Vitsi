@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "313170957114",
+    "firebase_url": "https://vitsiproject-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "vitsiproject",
+    "storage_bucket": "vitsiproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313170957114:android:63d2b1dc798e9c8880b603",
+        "android_client_info": {
+          "package_name": "com.example.vitsi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313170957114-ei3bbtolnes8o6dbpfrcgogf9dup0vmc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vitsi",
+            "certificate_hash": "9ef67f18a95d9de10f476e475adb6d845bb83f6b"
+          }
+        },
+        {
+          "client_id": "313170957114-atjjnmjb5f1ip3i4n17bokkfk110rbl4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI2Sw0t_JFIT2gsbYd_xaeuyPaWmFYK2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313170957114-atjjnmjb5f1ip3i4n17bokkfk110rbl4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

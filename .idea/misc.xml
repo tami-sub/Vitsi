@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.145" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable-v24/message_box_background.xml" value="0.177" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/button_background_style.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/color_cursor.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/comment_layout_background.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/hashtag_background.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/ic_add_circle.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/ic_add_person.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/ic_bookmark_border_black.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/ic_call_missed.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/ic_insert_comment.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/ic_more_vert.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/drawable/ic_outline_flip_camera_ios_white.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/font/advent_pro_medium.xml" value="0.10277777777777777" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/font/arimo.xml" value="0.10277777777777777" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/audio_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/chat_fragment.xml" value="0.18478260869565216" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/chat_user_layout.xml" value="0.264" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/discover_item.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/each_comment_item.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/fragment_basic_email.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/fragment_basic_phone.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/fragment_create_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/fragment_create_username.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/fragment_discover.xml" value="0.8800000000000001" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/fragment_log_in.xml" value="0.264" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/fragment_post_video.xml" value="0.152" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/fragment_profile_with_account.xml" value="0.18478260869565216" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/fragment_select_basic_sign_up.xml" value="0.13994565217391305" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/large_video_layout.xml" value="0.20020855057351408" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/loading_layout.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/one_to_one_chat_fragment.xml" value="0.159375" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/receive.xml" value="0.1" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/sent.xml" value="0.16822916666666668" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/layout/sign_up_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ment2/Desktop/Vitsi/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

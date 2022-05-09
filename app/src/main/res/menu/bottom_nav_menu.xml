@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/audioFragment"
+        android:icon="@drawable/create_video_icon"
+        android:title="Create Audio" />
+    <item
+        android:id="@+id/chatFragment"
+        android:icon="@drawable/ic_inbox"
+        android:title="Chat" />
+
+    <item
+        android:id="@+id/meFragment"
+        android:icon="@drawable/ic_identity"
+        android:title="@string/me" />
+
+</menu>

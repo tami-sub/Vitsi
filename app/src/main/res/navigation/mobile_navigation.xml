@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/audioFragment">
+
+    <fragment
+        android:id="@+id/profileWithoutAccountFragment"
+        android:name="com.example.vitsi.presentation.ui.profile.without_account.ProfileWithoutAccountFragment"
+        android:label="Sign up"
+        tools:layout="@layout/fragment_profile_without_account" />
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.vitsi.presentation.ui.auth.sign_up.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/sign_up_page">
+        <action
+            android:id="@+id/action_signUpFragment_to_ageFragment"
+            app:destination="@id/ageFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_createUsernameFragment"
+            app:destination="@id/createUsernameFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_createUsernameFragment2"
+            app:destination="@id/createUsernameFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ageFragment"
+        android:name="com.example.vitsi.presentation.ui.auth.age_verification.AgeFragment"
+        android:label="Age Fragment"
+        tools:layout="@layout/fragment_age">
+<!--        <action-->
+<!--            android:id="@+id/action_ageFragment_to_selectBasicSignUpFragment"-->
+<!--            app:destination="@id/selectBasicSignUpFragment" />-->
+    </fragment>
+
+<!--    <fragment-->
+<!--        android:id="@+id/selectBasicSignUpFragment"-->
+<!--        android:name="com.example.vitsi.presentation.ui.auth.select_basic_auth.SelectBasicAuthFragment"-->
+<!--        android:label="SelectBasicSignUpFragment"-->
+<!--        tools:layout="@layout/fragment_select_basic_sign_up">-->
+<!--        <action-->
+<!--            android:id="@+id/action_selectBasicSignUpFragment_to_createUsernameFragment"-->
+<!--            app:destination="@id/createUsernameFragment" />-->
+<!--        <argument-->
+<!--            android:name="isLogIn"-->
+<!--            app:argType="boolean"-->
+<!--            android:defaultValue="false" />-->
+<!--    </fragment>-->
+
+    <fragment
+        android:id="@+id/createUsernameFragment"
+        android:name="com.example.vitsi.presentation.ui.auth.create_username.CreateUsernameFragment"
+        android:label="fragment_create_username"
+        tools:layout="@layout/fragment_create_username">
+        <action
+            android:id="@+id/action_createUsernameFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="credential"
+            app:argType="com.google.firebase.auth.AuthCredential"
+            app:nullable="true" />
+        <argument
+            android:name="googleBody"
+            app:argType="com.example.vitsi.models.sign_up.GoogleBody"
+            app:nullable="true" />
+        <argument
+            android:name="emailBody"
+            app:argType="com.example.vitsi.models.sign_up.EmailBody"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.vitsi.presentation.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_profileWithAccountFragment"
+            app:destination="@id/profileWithAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectMediaFragment"
+        android:name="com.example.vitsi.presentation.ui.upload.select_media.SelectMediaFragment"
+        android:label="SelectMediaFragment">
+        <action
+            android:id="@+id/action_selectMediaFragment_to_previewVideoFragment"
+            app:destination="@id/previewVideoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/meFragment"
+        android:name="com.example.vitsi.presentation.ui.profile.MeFragment"
+        android:label="MeFragment"
+        tools:layout="@layout/fragment_me">
+        <action
+            android:id="@+id/action_meFragment_to_largeVideoFragment"
+            app:destination="@id/largeVideoFragment" />
+        <action
+            android:id="@+id/action_meFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/largeVideoFragment"
+        android:name="com.example.vitsi.presentation.ui.large_video.LargeVideoFragment"
+        android:label="LargeVideoFragment"
+        tools:layout="@layout/large_video_layout">
+        <argument
+            android:name="remoteVideo"
+            app:argType="com.example.vitsi.models.video.RemoteVideo" />
+        <action
+            android:id="@+id/action_largeVideoFragment_to_profileWithAccountFragment"
+            app:destination="@id/profileWithAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/previewVideoFragment"
+        android:name="com.example.vitsi.presentation.ui.upload.preview_video.PreviewVideoFragment"
+        android:label="PreviewVideoFragment"
+        tools:layout="@layout/fragment_preview_video">
+        <argument
+            android:name="localVideo"
+            app:argType="com.example.vitsi.models.local.LocalVideo" />
+        <action
+            android:id="@+id/action_previewVideoFragment_to_postVideoFragment"
+            app:destination="@id/postVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postVideoFragment"
+        android:name="com.example.vitsi.presentation.ui.upload.post_video.PostVideoFragment"
+        android:label="PostVideoFragment"
+        tools:layout="@layout/fragment_post_video">
+        <argument
+            android:name="localVideo"
+            app:argType="com.example.vitsi.models.local.LocalVideo" />
+        <action
+            android:id="@+id/action_postVideoFragment_to_largeVideoFragment"
+            app:destination="@id/largeVideoFragment"
+            app:popUpTo="@id/meFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileWithAccountFragment"
+        android:name="com.example.vitsi.presentation.ui.profile.with_account.ProfileWithAccountFragment"
+        android:label="ProfileWithAccountFragment"
+        tools:layout="@layout/fragment_profile_with_account">
+
+        <argument
+            android:name="uid"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_profileWithAccountFragment_to_largeVideoFragment"
+            app:destination="@id/largeVideoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/audioFragment"
+        android:name="com.example.vitsi.presentation.ui.audio.AudioFragment"
+        android:label="AudioFragment"
+        tools:layout="@layout/audio_fragment">
+
+        <action
+            android:id="@+id/action_audioFragment_to_postVideoFragment"
+            app:destination="@id/postVideoFragment" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.vitsi.presentation.ui.auth.log_in.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/log_in_page">
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.vitsi.presentation.ui.chat.ChatFragment"
+        android:label="chat_fragment"
+        tools:layout="@layout/chat_fragment" >
+        <action
+            android:id="@+id/action_chatFragment_to_oneToOneChatFragment"
+            app:destination="@id/oneToOneChatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/oneToOneChatFragment"
+        android:name="com.example.vitsi.presentation.ui.chat.OneToOneChatFragment"
+        android:label="one_to_one_chat_fragment"
+        tools:layout="@layout/one_to_one_chat_fragment" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="uid"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

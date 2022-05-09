@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.vitsi.presentation.ui.auth.create_username.CreateUsernameViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.example.vitsi.presentation.ui.auth.create_username.CreateUsernameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        tools:context=".presentation.ui.auth.create_username.CreateUsernameFragment">
+
+        <TextView
+            android:id="@+id/sign_up_plain_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/cabin_medium"
+            android:text="@string/sign_up"
+            android:textColor="@color/dark_black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/skip_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/advent_pro_medium"
+            android:padding="8dp"
+            android:text="@string/skip"
+            android:textColor="@color/medium_grey"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/sign_up_plain_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sign_up_plain_text" />
+
+        <TextView
+            android:id="@+id/create_username_plain_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/cabin_medium"
+            android:text="@string/create_username"
+            android:textColor="@color/dark_black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_plain_text" />
+
+        <TextView
+            android:id="@+id/create_username_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/create_username_description"
+            app:layout_constraintStart_toStartOf="@+id/create_username_plain_text"
+            app:layout_constraintTop_toBottomOf="@+id/create_username_plain_text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sign_up_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/cabin_medium"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/sign_up"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/pinkBtnBackground"
+            app:layout_constraintEnd_toEndOf="@+id/username_layout"
+            app:layout_constraintStart_toStartOf="@+id/create_username_description"
+            app:layout_constraintTop_toBottomOf="@+id/live_status_text" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/username_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:hint="@string/username"
+            android:textColorHint="@color/light_black"
+            app:boxStrokeColor="@color/light_grey"
+            app:boxStrokeErrorColor="@color/medium_red"
+            app:errorEnabled="@{viewModel.errorTextRes != null}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/create_username_description">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:inputType="textPersonName"
+                android:text="@={viewModel.liveUsername}"
+                android:textColor="@color/dark_black"
+                android:textColorHint="@color/medium_grey"
+                android:textSize="14sp"
+                app:backgroundTint="@android:color/white"
+                tools:text="andre_max" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/live_status_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/advent_pro_medium"
+            android:textColor="@color/medium_red"
+            android:textSize="14sp"
+            app:changeVisibility="@{viewModel.errorTextRes != null}"
+            app:layout_constraintEnd_toEndOf="@+id/username_layout"
+            app:layout_constraintStart_toStartOf="@+id/username_layout"
+            app:layout_constraintTop_toBottomOf="@+id/username_layout"
+            tools:text="Include at least 2 characters in your username"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
