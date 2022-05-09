@@ -9,10 +9,6 @@ class FirePath {
     private val myUid: String
         get() = Firebase.auth.uid ?: ""
 
-    fun getTagsPath() = "tags"
-    fun getTagInfo(tag: String) = "tags/$tag/info"
-    fun getTagAudios(tag: String) = "tags/$tag/tag-audios"
-
     fun getUserInfo(uid: String = myUid): String =
         "users/$uid/basic-data"
 

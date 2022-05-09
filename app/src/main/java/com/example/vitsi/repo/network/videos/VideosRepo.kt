@@ -52,7 +52,6 @@ interface VideosRepo {
         isPrivate: Boolean,
         videoUrl: String,
         descriptionText: String,
-        tags: Map<String, String>,
         duration: Long?,
         onComplete: (Boolean) -> Unit
     )

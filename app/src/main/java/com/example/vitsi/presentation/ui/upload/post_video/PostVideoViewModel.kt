@@ -2,7 +2,6 @@ package com.example.vitsi.presentation.ui.upload.post_video
 
 import android.content.Context
 import android.util.Log
-import androidx.core.net.toUri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -14,7 +13,6 @@ import com.example.vitsi.repo.network.storage.StorageRepo
 import com.example.vitsi.repo.network.videos.DefaultVideosRepo
 import com.example.vitsi.utils.architecture.BaseViewModel
 import kotlinx.coroutines.launch
-import java.io.File
 
 class PostVideoViewModel : BaseViewModel() {
 
@@ -33,7 +31,6 @@ class PostVideoViewModel : BaseViewModel() {
         }
 
         _uploadStatus.value = Progress.ACTIVE
-        val tags = processTags()
 
         viewModelScope.launch {
 
@@ -52,17 +49,11 @@ class PostVideoViewModel : BaseViewModel() {
                 isPrivate = false,
                 videoUrl = downloadUrl,
                 descriptionText = descriptionText,
-                tags = tags,
                 duration = localVideo.duration,
                 onComplete = { succeeded ->
                     _uploadStatus.value = if (succeeded) Progress.DONE else Progress.FAILED
                 }
             )
         }
-    }
-
-    private fun processTags(): Map<String, String> {
-        val descriptionList = liveDescription.value?.split(" ") ?: listOf()
-        return descriptionList.filter { it.startsWith("#") }.associateBy { it.replace("#", "") }
     }
 }

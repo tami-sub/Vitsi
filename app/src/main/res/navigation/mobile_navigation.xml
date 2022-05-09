@@ -17,9 +17,6 @@
         android:label="SignUpFragment"
         tools:layout="@layout/sign_up_page">
         <action
-            android:id="@+id/action_signUpFragment_to_ageFragment"
-            app:destination="@id/ageFragment" />
-        <action
             android:id="@+id/action_signUpFragment_to_createUsernameFragment"
             app:destination="@id/createUsernameFragment" />
         <action
@@ -29,29 +26,6 @@
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/ageFragment"
-        android:name="com.example.vitsi.presentation.ui.auth.age_verification.AgeFragment"
-        android:label="Age Fragment"
-        tools:layout="@layout/fragment_age">
-<!--        <action-->
-<!--            android:id="@+id/action_ageFragment_to_selectBasicSignUpFragment"-->
-<!--            app:destination="@id/selectBasicSignUpFragment" />-->
-    </fragment>
-
-<!--    <fragment-->
-<!--        android:id="@+id/selectBasicSignUpFragment"-->
-<!--        android:name="com.example.vitsi.presentation.ui.auth.select_basic_auth.SelectBasicAuthFragment"-->
-<!--        android:label="SelectBasicSignUpFragment"-->
-<!--        tools:layout="@layout/fragment_select_basic_sign_up">-->
-<!--        <action-->
-<!--            android:id="@+id/action_selectBasicSignUpFragment_to_createUsernameFragment"-->
-<!--            app:destination="@id/createUsernameFragment" />-->
-<!--        <argument-->
-<!--            android:name="isLogIn"-->
-<!--            app:argType="boolean"-->
-<!--            android:defaultValue="false" />-->
-<!--    </fragment>-->
 
     <fragment
         android:id="@+id/createUsernameFragment"

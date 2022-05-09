@@ -68,7 +68,7 @@ class ProfileWithAccountFragment : BaseFragment(R.layout.fragment_profile_with_a
         viewModel.profileUser.observe(viewLifecycleOwner) { profileUser ->
             profileUser?.let {
                 binding.likesCountNumber.text = profileUser.totalLikes.toString()
-                binding.userTag.text = getString(R.string.author_username, profileUser.username)
+                binding.userNickname.text = getString(R.string.author_username, profileUser.username)
 
                 // Since the user can chose to stay without a profile picture, lets use the person icon
                 // as a default.

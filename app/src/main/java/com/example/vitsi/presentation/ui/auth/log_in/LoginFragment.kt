@@ -1,18 +1,15 @@
 package com.example.vitsi.presentation.ui.auth.log_in
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.example.vitsi.R
 import com.example.vitsi.databinding.FragmentLogInBinding
 import com.example.vitsi.utils.BottomNavViewUtils
 import com.example.vitsi.utils.architecture.BaseFragment
-import kotlinx.coroutines.launch
 
 class LoginFragment : BaseFragment(R.layout.fragment_log_in) {
 

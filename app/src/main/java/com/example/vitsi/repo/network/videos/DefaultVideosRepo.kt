@@ -2,7 +2,6 @@ package com.example.vitsi.repo.network.videos
 
 import com.example.vitsi.models.video.RemoteVideo
 import com.example.vitsi.models.video.VideoType
-import com.example.vitsi.repo.network.tag.DefaultTagRepo
 import com.example.vitsi.repo.network.utils.FirePath
 import com.example.vitsi.repo.network.utils.safeAccess
 import com.google.firebase.auth.ktx.auth
@@ -15,7 +14,6 @@ import java.util.*
 
 class DefaultVideosRepo : VideosRepo {
     private val realFire = Firebase.database
-    private val tagRepo = DefaultTagRepo()
     private val firePath = FirePath()
 
     override suspend fun fetchRandomAudios() = safeAccess {
@@ -75,13 +73,11 @@ class DefaultVideosRepo : VideosRepo {
     private fun getRemoteVideoFromLocalVideo(
         videoUrl: String,
         descriptionText: String,
-        tags: Map<String, String>,
         duration: Long?
     ) =
         RemoteVideo(
             url = videoUrl,
             description = descriptionText,
-            tags = tags,
             duration = duration ?: 0,
             audioId = UUID.randomUUID().toString(),
             dateCreated = System.currentTimeMillis(),
@@ -95,20 +91,18 @@ class DefaultVideosRepo : VideosRepo {
         isPrivate: Boolean,
         videoUrl: String,
         descriptionText: String,
-        tags: Map<String, String>,
         duration: Long?,
         onComplete: (Boolean) -> Unit
     ) {
         try {
             val videoType = if (isPrivate) VideoType.PRIVATE else VideoType.PUBLIC
             val remoteVideo =
-                getRemoteVideoFromLocalVideo(videoUrl, descriptionText, tags, duration)
+                getRemoteVideoFromLocalVideo(videoUrl, descriptionText, duration)
 
             if (!isPrivate) {
                 makeVideoPublic(remoteVideo)
             }
             saveVideoToMyAccount(videoType, remoteVideo)
-            tagRepo.saveTagsInVideo(tags.values, remoteVideo.audioId)
             onComplete(true)
         } catch (e: Exception) {
             Timber.e(e)

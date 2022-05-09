@@ -50,7 +50,7 @@
             app:layout_constraintTop_toBottomOf="@+id/line" />
 
         <TextView
-            android:id="@+id/user_tag"
+            android:id="@+id/user_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -69,7 +69,7 @@
             android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_tag">
+            app:layout_constraintTop_toBottomOf="@+id/user_nickname">
 
             <TextView
                 android:id="@+id/likes_count_number"

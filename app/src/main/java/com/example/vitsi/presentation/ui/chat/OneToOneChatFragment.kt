@@ -1,6 +1,5 @@
 package com.example.vitsi.presentation.ui.chat
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,8 +8,8 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.vitsi.R
 import com.example.vitsi.databinding.OneToOneChatFragmentBinding
+import com.example.vitsi.models.chat.Message
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 

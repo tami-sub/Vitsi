@@ -53,8 +53,6 @@
     <string name="short_username">Include at least 4 characters in your username</string>
     <string name="long_username">Username must be less than 25 characters</string>
     <string name="name_contains_spaces">Username must not contain any spaces</string>
-    <string name="hashtags">#Hashtags</string>
-    <string name="friends">\@Friends</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="send_invite">Send invite</string>
     <string name="open_menu">Open menu</string>
@@ -70,14 +68,12 @@
     <string name="describe_your_audio">Describe your audio</string>
     <string name="drafts">Drafts</string>
     <string name="next">Next</string>
-    <string name="popular_hashtag">Popular Hashtag</string>
     <string name="sign_up">Sign up</string>
     <string name="when_is_your_birthday">When\'s your birthday?</string>
     <string name="your_birthday_won_t_be_shown_publicly">Your birthday won\'t be shown publicly</string>
     <string name="phone_number">Phone Number</string>
     <string name="send_code">Send code</string>
     <string name="email_address">Email address</string>
-    <string name="hash_tag_name">#%s</string>
     <string name="error_during_account_creation">Error occurred while creating account. Kindly try again.</string>
     <string name="code_invalid">Code is invalid. Enter the valid code</string>
     <string name="phone">Phone</string>

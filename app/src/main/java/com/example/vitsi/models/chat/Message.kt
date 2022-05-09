@@ -1,4 +1,4 @@
-package com.example.vitsi.presentation.ui.chat
+package com.example.vitsi.models.chat
 
 data class Message(
     var message:String? = null,
