@@ -11,19 +11,15 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vitsi.R
 import com.example.vitsi.databinding.FragmentHomeBinding
-import com.example.vitsi.models.video.RemoteVideo
 import com.example.vitsi.presentation.ui.home.large_video_group.LargeVideoGroup
-import com.example.vitsi.utils.BottomNavViewUtils
 import com.example.vitsi.utils.BottomNavViewUtils.changeNavBarColor
 import com.example.vitsi.utils.BottomNavViewUtils.showBottomNavBar
 import com.example.vitsi.utils.SystemBarColors
-import com.example.vitsi.utils.ViewUtils
 import com.example.vitsi.utils.ViewUtils.changeSystemBars
 import com.example.vitsi.utils.ViewUtils.hideStatusBar
 import com.example.vitsi.utils.architecture.BaseFragment
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
-import timber.log.Timber
 
 class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private lateinit var binding: FragmentHomeBinding

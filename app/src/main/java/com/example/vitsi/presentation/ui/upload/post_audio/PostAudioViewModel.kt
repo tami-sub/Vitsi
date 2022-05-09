@@ -1,4 +1,4 @@
-package com.example.vitsi.presentation.ui.upload.post_video
+package com.example.vitsi.presentation.ui.upload.post_audio
 
 import android.content.Context
 import android.util.Log
@@ -14,17 +14,17 @@ import com.example.vitsi.repo.network.videos.DefaultVideosRepo
 import com.example.vitsi.utils.architecture.BaseViewModel
 import kotlinx.coroutines.launch
 
-class PostVideoViewModel : BaseViewModel() {
+class PostAudioViewModel : BaseViewModel() {
 
     private val storageRepo = StorageRepo()
-    private val videosRepo = DefaultVideosRepo()
+    private val audiosRepo = DefaultVideosRepo()
 
     val liveDescription = MutableLiveData("")
 
     private val _uploadStatus = MutableLiveData(Progress.IDLE)
     val uploadStatus: LiveData<Progress> = _uploadStatus
 
-    fun postVideo(context: Context, localVideo: LocalVideo) {
+    fun postAudio(context: Context, localVideo: LocalVideo) {
         val descriptionText = liveDescription.value ?: run {
             showMessage(R.string.audio_description_needed)
             return
@@ -45,7 +45,7 @@ class PostVideoViewModel : BaseViewModel() {
             Log.d("joka", result.tryData().toString())
             val downloadUrl = result.tryData()?.toString() ?: return@launch
 
-            videosRepo.saveVideoToFireDB(
+            audiosRepo.saveVideoToFireDB(
                 isPrivate = false,
                 videoUrl = downloadUrl,
                 descriptionText = descriptionText,

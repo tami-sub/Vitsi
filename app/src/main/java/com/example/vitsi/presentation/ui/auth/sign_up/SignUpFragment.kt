@@ -40,6 +40,8 @@ class SignUpFragment : BaseFragment(R.layout.sign_up_page) {
     override fun setUpClickListeners() {
         binding.signUpCancelBtn.setOnClickListener { findNavController().popBackStack() }
 
+        binding.logInGoogleBtn.setOnClickListener { findNavController().navigate(R.id.action_signUpFragment_to_loginFragment) }
+
         binding.signUpGoogleBtn.setOnClickListener {
             viewModel.googleAuthRepo.doGoogleAuth(requireContext(), launcher)
         }
@@ -52,8 +54,7 @@ class SignUpFragment : BaseFragment(R.layout.sign_up_page) {
             // Since the body is used in providing a name and a profile picture, we should not be afraid if the values are null
             // since we are performing a null check in CreateUserNameViewModel
             val googleAccount = viewModel.googleAccount
-            val googleBody =
-                GoogleBody(googleAccount?.displayName, googleAccount?.photoUrl?.toString())
+            val googleBody = GoogleBody(googleAccount?.displayName, googleAccount?.photoUrl?.toString())
 
             findNavController().navigate(
                 SignUpFragmentDirections.actionSignUpFragmentToCreateUsernameFragment(

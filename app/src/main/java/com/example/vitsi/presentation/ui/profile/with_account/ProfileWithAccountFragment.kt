@@ -10,13 +10,11 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.vitsi.*
 import com.example.vitsi.databinding.FragmentProfileWithAccountBinding
 import com.example.vitsi.models.video.VideoType
-import com.example.vitsi.presentation.ui.profile.with_account.tab.ProfileVideoTab
 import com.example.vitsi.utils.BottomNavViewUtils.showBottomNavBar
 import com.example.vitsi.utils.ImageUtils.loadGlideImage
 import com.example.vitsi.utils.SystemBarColors
 import com.example.vitsi.utils.ViewUtils
 import com.example.vitsi.utils.architecture.BaseFragment
-import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import timber.log.Timber
@@ -31,21 +29,6 @@ class ProfileWithAccountFragment : BaseFragment(R.layout.fragment_profile_with_a
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.fetchUser(args.uid)
-
-        val tabConfigurationStrategy =
-            TabLayoutMediator.TabConfigurationStrategy { tab, position ->
-                Timber.d("tab is $tab and tab position is $position")
-                tab.text = getString(
-                    when (position) {
-                        0 -> R.string.my_audios
-                        1 -> R.string.my_private_audios
-                        2 -> R.string.my_liked_audios
-                        else -> throw IndexOutOfBoundsException("position was $position")
-                    }
-                )
-            }
-        TabLayoutMediator(binding.profileTabLayout, binding.viewpager, tabConfigurationStrategy)
-            .attach()
     }
 
     private val onPageChangedCallback = object : ViewPager2.OnPageChangeCallback() {
@@ -58,10 +41,6 @@ class ProfileWithAccountFragment : BaseFragment(R.layout.fragment_profile_with_a
 
     override fun setUpLayout() {
         binding = FragmentProfileWithAccountBinding.bind(requireView())
-        binding.viewpager.apply {
-            adapter = MyFragmentStateAdapter(this@ProfileWithAccountFragment)
-            registerOnPageChangeCallback(onPageChangedCallback)
-        }
     }
 
     override fun setUpLiveData() {
@@ -84,7 +63,7 @@ class ProfileWithAccountFragment : BaseFragment(R.layout.fragment_profile_with_a
         super.setUpClickListeners()
         if (args.uid == Firebase.auth.uid) {
             binding.editProfileBtn.setOnClickListener {
-                // TODO: Navigate to EditeProfileFragment
+                Firebase.auth.signOut()
             }
         }
     }
@@ -97,32 +76,5 @@ class ProfileWithAccountFragment : BaseFragment(R.layout.fragment_profile_with_a
     override fun onResume() {
         super.onResume()
         showBottomNavBar(activity)
-    }
-
-
-    class MyFragmentStateAdapter(
-        private val profileWithAccountFragment: ProfileWithAccountFragment
-    ) : FragmentStateAdapter(profileWithAccountFragment) {
-
-        /*
-        If the profile Uid represents the current user, show him everything
-        If the profile user wants to show their liked videos, show the current user the first two: public and liked videos
-        Otherwise, show only the public videos
-         */
-        override fun getItemCount(): Int = when {
-            profileWithAccountFragment.args.uid == Firebase.auth.uid -> 3
-            profileWithAccountFragment.viewModel.profileUser.value?.showLikedAudios == true -> 2
-            else -> 1
-        }
-
-        override fun createFragment(position: Int): Fragment {
-            val uid = profileWithAccountFragment.args.uid
-            return when (position) {
-                0 -> ProfileVideoTab.getInstance(uid, VideoType.PUBLIC)
-                1 -> ProfileVideoTab.getInstance(uid, VideoType.LIKED)
-                2 -> ProfileVideoTab.getInstance(uid, VideoType.PRIVATE)
-                else -> throw ArrayIndexOutOfBoundsException(position)
-            }
-        }
     }
 }

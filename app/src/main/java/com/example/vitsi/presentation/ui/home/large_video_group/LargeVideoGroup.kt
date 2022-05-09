@@ -8,7 +8,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.example.vitsi.R
 import com.example.vitsi.databinding.LargeVideoLayoutBinding
 import com.example.vitsi.models.video.RemoteVideo
-import com.example.vitsi.presentation.ui.components.video.MainLargeVideo
+import com.example.vitsi.presentation.ui.components.MainLargeAudio
 import com.example.vitsi.repo.network.user.UserRepo
 import com.example.vitsi.repo.network.videos.VideosRepo
 import com.xwray.groupie.viewbinding.BindableItem
@@ -25,10 +25,10 @@ class LargeVideoGroup(
     private val onVideoEnded: (LargeVideoGroup) -> Unit
 ) : BindableItem<LargeVideoLayoutBinding>() {
 
-    private lateinit var mainLargeVideo: MainLargeVideo
+    private lateinit var mainLargeVideo: MainLargeAudio
 
     override fun bind(binding: LargeVideoLayoutBinding, position: Int) {
-        mainLargeVideo = MainLargeVideo(
+        mainLargeVideo = MainLargeAudio(
             scope = scope,
             lifecycle = lifecycleOwner.lifecycle,
             binding = binding,

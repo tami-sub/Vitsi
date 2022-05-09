@@ -57,14 +57,6 @@
             android:id="@+id/action_homeFragment_to_profileWithAccountFragment"
             app:destination="@id/profileWithAccountFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/selectMediaFragment"
-        android:name="com.example.vitsi.presentation.ui.upload.select_media.SelectMediaFragment"
-        android:label="SelectMediaFragment">
-        <action
-            android:id="@+id/action_selectMediaFragment_to_previewVideoFragment"
-            app:destination="@id/previewVideoFragment" />
-    </fragment>
 
     <fragment
         android:id="@+id/meFragment"
@@ -72,47 +64,36 @@
         android:label="MeFragment"
         tools:layout="@layout/fragment_me">
         <action
-            android:id="@+id/action_meFragment_to_largeVideoFragment"
-            app:destination="@id/largeVideoFragment" />
+            android:id="@+id/action_meFragment_to_largeaudioFragment"
+            app:destination="@id/largeaudioFragment" />
         <action
             android:id="@+id/action_meFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
     </fragment>
     <fragment
-        android:id="@+id/largeVideoFragment"
-        android:name="com.example.vitsi.presentation.ui.large_video.LargeVideoFragment"
-        android:label="LargeVideoFragment"
+        android:id="@+id/largeaudioFragment"
+        android:name="com.example.vitsi.presentation.ui.large_video.LargeAudioFragment"
+        android:label="LargeaudioFragment"
         tools:layout="@layout/large_video_layout">
         <argument
             android:name="remoteVideo"
             app:argType="com.example.vitsi.models.video.RemoteVideo" />
         <action
-            android:id="@+id/action_largeVideoFragment_to_profileWithAccountFragment"
+            android:id="@+id/action_largeaudioFragment_to_profileWithAccountFragment"
             app:destination="@id/profileWithAccountFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/previewVideoFragment"
-        android:name="com.example.vitsi.presentation.ui.upload.preview_video.PreviewVideoFragment"
-        android:label="PreviewVideoFragment"
-        tools:layout="@layout/fragment_preview_video">
+        android:id="@+id/postAudioFragment"
+        android:name="com.example.vitsi.presentation.ui.upload.post_audio.PostAudioFragment"
+        android:label="PostAudioFragment"
+        tools:layout="@layout/fragment_post_audio">
         <argument
             android:name="localVideo"
             app:argType="com.example.vitsi.models.local.LocalVideo" />
         <action
-            android:id="@+id/action_previewVideoFragment_to_postVideoFragment"
-            app:destination="@id/postVideoFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/postVideoFragment"
-        android:name="com.example.vitsi.presentation.ui.upload.post_video.PostVideoFragment"
-        android:label="PostVideoFragment"
-        tools:layout="@layout/fragment_post_video">
-        <argument
-            android:name="localVideo"
-            app:argType="com.example.vitsi.models.local.LocalVideo" />
-        <action
-            android:id="@+id/action_postVideoFragment_to_largeVideoFragment"
-            app:destination="@id/largeVideoFragment"
+            android:id="@+id/action_postAudioFragment_to_largeaudioFragment"
+            app:destination="@id/largeaudioFragment"
             app:popUpTo="@id/meFragment" />
     </fragment>
     <fragment
@@ -125,8 +106,8 @@
             android:name="uid"
             app:argType="string" />
         <action
-            android:id="@+id/action_profileWithAccountFragment_to_largeVideoFragment"
-            app:destination="@id/largeVideoFragment" />
+            android:id="@+id/action_profileWithAccountFragment_to_largeaudioFragment"
+            app:destination="@id/largeaudioFragment" />
     </fragment>
 
     <fragment
@@ -136,8 +117,8 @@
         tools:layout="@layout/audio_fragment">
 
         <action
-            android:id="@+id/action_audioFragment_to_postVideoFragment"
-            app:destination="@id/postVideoFragment" />
+            android:id="@+id/action_audioFragment_to_postAudioFragment"
+            app:destination="@id/postAudioFragment" />
 
 
     </fragment>
@@ -146,12 +127,11 @@
         android:id="@+id/loginFragment"
         android:name="com.example.vitsi.presentation.ui.auth.log_in.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/log_in_page">
-    </fragment>
+        tools:layout="@layout/log_in_page"/>
 
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.vitsi.presentation.ui.chat.ChatFragment"
+        android:name="com.example.vitsi.presentation.ui.chat.chat_all_users.ChatFragment"
         android:label="chat_fragment"
         tools:layout="@layout/chat_fragment" >
         <action
@@ -160,7 +140,7 @@
     </fragment>
     <fragment
         android:id="@+id/oneToOneChatFragment"
-        android:name="com.example.vitsi.presentation.ui.chat.OneToOneChatFragment"
+        android:name="com.example.vitsi.presentation.ui.chat.one_to_one_chat.OneToOneChatFragment"
         android:label="one_to_one_chat_fragment"
         tools:layout="@layout/one_to_one_chat_fragment" >
         <argument

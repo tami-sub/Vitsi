@@ -6,11 +6,11 @@
     <data>
 
         <import type="com.example.vitsi.models.upload.Progress"/>
-        <import type="com.example.vitsi.presentation.ui.upload.post_video.PostVideoViewModel" />
+        <import type="com.example.vitsi.presentation.ui.upload.post_audio.PostAudioViewModel" />
 
         <variable
             name="viewModel"
-            type="PostVideoViewModel" />
+            type="PostAudioViewModel" />
 
     </data>
 
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        tools:context=".presentation.ui.upload.post_video.PostVideoFragment">
+        tools:context=".presentation.ui.upload.post_audio.PostAudioFragment">
 
         <TextView
             android:id="@+id/sign_up_plain_text"

@@ -1,9 +1,7 @@
-package com.example.vitsi.presentation.ui.components.video
+package com.example.vitsi.presentation.ui.components
 
-import android.content.Intent
 import android.view.GestureDetector
 import android.view.MotionEvent
-import android.view.WindowManager
 import androidx.lifecycle.*
 import com.example.vitsi.databinding.LargeVideoLayoutBinding
 import com.example.vitsi.models.succeeded
@@ -14,13 +12,10 @@ import com.example.vitsi.repo.network.user.UserRepo
 import com.example.vitsi.repo.network.videos.VideosRepo
 import com.example.vitsi.utils.NumbersUtils
 import com.bumptech.glide.Glide
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
-class MainLargeVideo(
+class MainLargeAudio(
     private val scope: CoroutineScope,
     private val lifecycle: Lifecycle,
     private val binding: LargeVideoLayoutBinding,
@@ -56,7 +51,6 @@ class MainLargeVideo(
 
     private suspend fun createProfile(remoteVideo: RemoteVideo) {
         author = userRepo.getUserProfile(remoteVideo.authorUid).tryData()
-        Timber.d("author is $author")
 
         binding.authorUsername.text = author?.username?.let { "@${it}" } ?: "@..."
         Glide.with(binding.root).load(author?.profilePictureUrl).into(binding.authorIcon)
@@ -135,8 +129,6 @@ class MainLargeVideo(
         val isLiked = videosRepo.isVideoLiked(remoteVideo.audioId)
         _isVideoLiked.value = isLiked.succeeded && isLiked.forceData()
     }
-
-
 
     fun destroy() {
         player?.let {

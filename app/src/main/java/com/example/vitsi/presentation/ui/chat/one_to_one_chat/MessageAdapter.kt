@@ -1,4 +1,4 @@
-package com.example.vitsi.presentation.ui.chat
+package com.example.vitsi.presentation.ui.chat.one_to_one_chat
 
 import android.content.Context
 import android.view.LayoutInflater

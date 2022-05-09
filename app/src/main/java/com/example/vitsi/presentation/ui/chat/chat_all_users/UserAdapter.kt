@@ -1,14 +1,11 @@
-package com.example.vitsi.presentation.ui.chat
+package com.example.vitsi.presentation.ui.chat.chat_all_users
 
 import android.content.Context
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vitsi.R
 import com.example.vitsi.models.user.User

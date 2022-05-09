@@ -122,5 +122,6 @@
     <string name="log_in_for_tiktok">Log in to TikTok</string>
     <string name="log_in_description_text">Manage your account</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_out_profile">Sign Out Profile</string>
 
 </resources>

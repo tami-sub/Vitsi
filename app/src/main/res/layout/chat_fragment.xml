@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/chatFragment"
-    tools:context=".presentation.ui.chat.ChatFragment">
+    tools:context=".presentation.ui.chat.chat_all_users.ChatFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userRecyclerView"

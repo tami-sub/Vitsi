@@ -1,4 +1,4 @@
-package com.example.vitsi.presentation.ui.chat
+package com.example.vitsi.presentation.ui.chat.chat_all_users
 
 import androidx.lifecycle.ViewModel
 

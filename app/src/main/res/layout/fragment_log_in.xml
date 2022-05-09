@@ -2,6 +2,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
@@ -32,14 +33,14 @@
 
     <TextView
         android:id="@+id/log_in_description_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="79dp"
+        android:layout_height="25dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/cabin"
         android:gravity="center"
         android:maxWidth="280dp"
-        android:text="@string/log_in_description_text"
+        android:text="Just one tap"
         app:layout_constraintEnd_toEndOf="@+id/log_in_to_tiktok_plain_text"
         app:layout_constraintStart_toStartOf="@+id/log_in_to_tiktok_plain_text"
         app:layout_constraintTop_toBottomOf="@+id/log_in_to_tiktok_plain_text" />
@@ -63,42 +64,5 @@
         app:layout_constraintEnd_toEndOf="@+id/log_in_description_text"
         app:layout_constraintStart_toStartOf="@+id/log_in_description_text"
         app:layout_constraintTop_toBottomOf="@+id/log_in_description_text" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="#F1F1FF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/log_in_already_have_account_plain_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/cabin"
-            android:text="@string/don_t_have_an_account"
-            android:textColor="@color/dark_black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/use_sign_up_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:fontFamily="sans-serif-medium"
-            android:padding="4dp"
-            android:text="@string/sign_up"
-            android:textColor="@color/pinkBtnBackground"
-            app:layout_constraintBottom_toBottomOf="@+id/log_in_already_have_account_plain_text"
-            app:layout_constraintStart_toEndOf="@+id/log_in_already_have_account_plain_text"
-            app:layout_constraintTop_toTopOf="@+id/log_in_already_have_account_plain_text" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

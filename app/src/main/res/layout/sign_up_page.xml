@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.20" />
+        app:layout_constraintVertical_bias="0.127" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/sign_up_google_btn"
@@ -49,6 +49,40 @@
         app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="@+id/sign_up_text"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_text"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.16" />
+
+    <TextView
+        android:id="@+id/log_in_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cabin_medium"
+        android:text="Log In for Vitsi"
+        android:textColor="@color/dark_black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/log_in_google_btn"
+        app:layout_constraintEnd_toEndOf="@+id/sign_up_google_btn"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/sign_up_google_btn"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_google_btn" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/log_in_google_btn"
+        android:layout_width="240dp"
+        android:layout_height="140dp"
+        android:layout_marginBottom="64dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:text="Login if you already have an account"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_black"
+        app:backgroundTint="@android:color/white"
+        app:cornerRadius="4dp"
+        app:icon="@drawable/googleg_standard_color_18"
+        app:iconSize="14dp"
+        app:iconTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/log_in_text"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/log_in_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

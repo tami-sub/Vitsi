@@ -1,4 +1,4 @@
-package com.example.vitsi.presentation.ui.chat
+package com.example.vitsi.presentation.ui.chat.one_to_one_chat
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

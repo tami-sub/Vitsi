@@ -34,7 +34,6 @@ class LoginFragment : BaseFragment(R.layout.fragment_log_in) {
 
     override fun setUpClickListeners() {
         binding.logInCancelBtn.setOnClickListener { findNavController().popBackStack() }
-        binding.useSignUpBtn.setOnClickListener { findNavController().popBackStack() } // Return to SignUpFragment
         binding.logInGoogleBtn.setOnClickListener {
             viewModel.googleAuthRepo.doGoogleAuth(requireContext(), launcher)
         }

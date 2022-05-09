@@ -87,7 +87,7 @@ class AudioFragment : Fragment() {
         Log.d("boka", mFileName)
         mFileName?.let {
             findNavController().navigate(
-                AudioFragmentDirections.actionAudioFragmentToPostVideoFragment(
+                AudioFragmentDirections.actionAudioFragmentToPostAudioFragment(
                     LocalVideo(
                         mFileName,
                         9,

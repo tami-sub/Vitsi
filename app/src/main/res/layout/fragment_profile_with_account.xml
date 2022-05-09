@@ -12,42 +12,15 @@
         tools:context=".presentation.ui.profile.with_account.ProfileWithAccountFragment">
 
 
-        <ImageView
-            android:id="@+id/send_invite_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/send_invite"
-            android:padding="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_add_person" />
-
-        <ImageView
-            android:id="@+id/menu_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/open_menu"
-            android:padding="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_more_vert" />
-
-        <View
-            android:id="@+id/line"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/light_grey"
-            app:layout_constraintTop_toBottomOf="@+id/send_invite_icon" />
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_photo"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            tools:src="@drawable/white_person_icon"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/white_person_icon" />
 
         <TextView
             android:id="@+id/user_nickname"
@@ -100,64 +73,12 @@
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="26dp"
             android:background="@drawable/button_background_style"
-            android:text="Sign Out Profile"
+            android:text="@string/sign_out_profile"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profile_constraint_layout" />
 
-        <ImageButton
-            android:id="@+id/favourites_icon"
-            android:layout_width="40dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/button_background_style"
-            android:contentDescription="@string/add_to_favourites"
-            app:layout_constraintBottom_toBottomOf="@+id/edit_profile_btn"
-            app:layout_constraintStart_toEndOf="@+id/edit_profile_btn"
-            app:layout_constraintTop_toTopOf="@+id/edit_profile_btn"
-            app:srcCompat="@drawable/ic_bookmark_border_black" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/profile_tab_layout"
-            android:layout_width="0dp"
-            android:visibility="invisible"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:theme="@style/TabAppearance"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_profile_btn"
-            app:tabBackground="@android:color/white"
-            app:tabSelectedTextColor="@color/dark_black"
-            app:tabTextColor="@color/medium_grey">
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/my_audios" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/my_private_audios" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/my_liked_audios" />
-        </com.google.android.material.tabs.TabLayout>
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewpager"
-            android:layout_width="0dp"
-            android:layout_height="230dp"
-            android:background="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_tab_layout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
