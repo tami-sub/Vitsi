@@ -3,22 +3,22 @@ package com.example.vitsi.presentation.ui.components
 import android.view.GestureDetector
 import android.view.MotionEvent
 import androidx.lifecycle.*
-import com.example.vitsi.databinding.LargeVideoLayoutBinding
-import com.example.vitsi.models.succeeded
-import com.example.vitsi.models.user.User
-import com.example.vitsi.models.video.RemoteVideo
+import com.example.vitsi.domain.succeeded
+import com.example.vitsi.domain.user.User
+import com.example.vitsi.domain.audio.RemoteAudio
 import com.example.vitsi.presentation.exoplayer.Player
-import com.example.vitsi.repo.network.user.UserRepo
-import com.example.vitsi.repo.network.videos.VideosRepo
+import com.example.vitsi.data.network.user.UserRepo
+import com.example.vitsi.data.network.videos.VideosRepo
 import com.example.vitsi.utils.NumbersUtils
 import com.bumptech.glide.Glide
+import com.example.vitsi.databinding.LargeAudioLayoutBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class MainLargeAudio(
     private val scope: CoroutineScope,
     private val lifecycle: Lifecycle,
-    private val binding: LargeVideoLayoutBinding,
+    private val binding: LargeAudioLayoutBinding,
     private val userRepo: UserRepo,
     private val videosRepo: VideosRepo,
     private val onPersonIconClicked: (String) -> Unit,
@@ -32,52 +32,52 @@ class MainLargeAudio(
     private val _isVideoLiked = MutableLiveData(false)
     val isVideoLiked: LiveData<Boolean> = _isVideoLiked
 
-    fun init(remoteVideo: RemoteVideo) {
+    fun init(remoteAudio: RemoteAudio) {
         scope.launch {
-            createProfile(remoteVideo)
-            createPlayer(remoteVideo)
-            createVideoInfo(remoteVideo)
-            setOnClickListeners(remoteVideo)
-            enableDoubleTap(remoteVideo)
+            createProfile(remoteAudio)
+            createPlayer(remoteAudio)
+            createVideoInfo(remoteAudio)
+            setOnClickListeners(remoteAudio)
+            enableDoubleTap(remoteAudio)
 
-            isVideoLiked(remoteVideo)
+            isVideoLiked(remoteAudio)
         }
     }
 
-    private fun createVideoInfo(remoteVideo: RemoteVideo) {
-        likeCount = remoteVideo.likes.toInt()
+    private fun createVideoInfo(remoteAudio: RemoteAudio) {
+        likeCount = remoteAudio.likes.toInt()
         binding.totalVideoLikes.text = NumbersUtils.formatCount(likeCount)
     }
 
-    private suspend fun createProfile(remoteVideo: RemoteVideo) {
-        author = userRepo.getUserProfile(remoteVideo.authorUid).tryData()
+    private suspend fun createProfile(remoteAudio: RemoteAudio) {
+        author = userRepo.getUserProfile(remoteAudio.authorUid).tryData()
 
         binding.authorUsername.text = author?.username?.let { "@${it}" } ?: "@..."
         Glide.with(binding.root).load(author?.profilePictureUrl).into(binding.authorIcon)
-        binding.videoDescription.text = remoteVideo.description ?: "#NoDescription"
+        binding.videoDescription.text = remoteAudio.description ?: "#NoDescription"
     }
 
-    private fun createPlayer(remoteVideo: RemoteVideo) {
+    private fun createPlayer(remoteAudio: RemoteAudio) {
         player = Player(
             simpleExoplayerView = binding.simpleExoPlayerView,
             playBtn = binding.playBtn,
             context = binding.root.context,
-            url = remoteVideo.url,
+            url = remoteAudio.url,
             onVideoEnded = { player -> onVideoEnded(player) }
         )
         lifecycle.addObserver(player!!)
         player?.init()
     }
 
-    private fun setOnClickListeners(remoteVideo: RemoteVideo) {
+    private fun setOnClickListeners(remoteAudio: RemoteAudio) {
         // TODO: Once the button is clicked, let's show a small pop-up layout that tells him/her to sign up or login
         if (userRepo.doesDeviceHaveAnAccount()) {
-            binding.likeVideoIcon.setOnClickListener { likeOrUnlikeVideo(remoteVideo) }
+            binding.likeVideoIcon.setOnClickListener { likeOrUnlikeVideo(remoteAudio) }
         }
-        binding.authorIcon.setOnClickListener { onPersonIconClicked(remoteVideo.authorUid) }
+        binding.authorIcon.setOnClickListener { onPersonIconClicked(remoteAudio.authorUid) }
     }
 
-    private fun enableDoubleTap(remoteVideo: RemoteVideo) {
+    private fun enableDoubleTap(remoteAudio: RemoteAudio) {
         val gd = GestureDetector(binding.root.context, object: GestureDetector.SimpleOnGestureListener() {
             override fun onSingleTapConfirmed(e: MotionEvent?): Boolean {
                 player?.changePlayerState()
@@ -85,7 +85,7 @@ class MainLargeAudio(
             }
 
             override fun onDoubleTap(e: MotionEvent?): Boolean {
-                likeOrUnlikeVideo(remoteVideo)
+                likeOrUnlikeVideo(remoteAudio)
                 return true
             }
 
@@ -97,7 +97,7 @@ class MainLargeAudio(
         }
     }
 
-    private fun likeOrUnlikeVideo(remoteVideo: RemoteVideo) {
+    private fun likeOrUnlikeVideo(remoteAudio: RemoteAudio) {
         scope.launch {
             // Change the heart icon
             val shouldLike =
@@ -108,8 +108,8 @@ class MainLargeAudio(
             changeLikeCount(shouldLike)
 
             videosRepo.likeOrUnlikeVideo(
-                audioId = remoteVideo.audioId,
-                authorId = remoteVideo.authorUid,
+                audioId = remoteAudio.audioId,
+                authorId = remoteAudio.authorUid,
                 shouldLike = shouldLike
             )
         }
@@ -123,10 +123,10 @@ class MainLargeAudio(
     /**
      * Sets isVideoLiked to true if the user likes the video
      *
-     * @param remoteVideo the video currently being displayed to the user
+     * @param remoteAudio the video currently being displayed to the user
      */
-    private suspend fun isVideoLiked(remoteVideo: RemoteVideo) {
-        val isLiked = videosRepo.isVideoLiked(remoteVideo.audioId)
+    private suspend fun isVideoLiked(remoteAudio: RemoteAudio) {
+        val isLiked = videosRepo.isVideoLiked(remoteAudio.audioId)
         _isVideoLiked.value = isLiked.succeeded && isLiked.forceData()
     }
 

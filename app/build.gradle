@@ -63,13 +63,12 @@ dependencies {
     // Firebase
     implementation 'com.google.firebase:firebase-analytics:20.1.2'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.4'
-    implementation 'com.google.firebase:firebase-messaging:23.0.2'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.9'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.10'
     implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
 
     // Auth libraries
-    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
 
     // Country picker
     implementation 'com.hbb20:ccp:2.4.7'
@@ -86,12 +85,6 @@ dependencies {
     // Groupie
     implementation 'com.xwray:groupie:2.8.1'
     implementation 'com.xwray:groupie-viewbinding:2.8.1'
-
-    // Edit CodeView
-//    implementation 'com.bigbangbutton:editcodeview:1.0.6'
-
-    // Dexter
-    implementation 'com.karumi:dexter:6.2.2'
 
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3'
@@ -114,10 +107,4 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:2.3.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
-
-    // Hilt
-    implementation 'com.google.dagger:hilt-android:2.33-beta'
-
-    // Hilt ViewModel
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
 }

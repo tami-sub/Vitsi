@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="com.example.vitsi.models.upload.Progress"/>
+        <import type="com.example.vitsi.domain.upload.Progress"/>
         <import type="com.example.vitsi.presentation.ui.upload.post_audio.PostAudioViewModel" />
 
         <variable

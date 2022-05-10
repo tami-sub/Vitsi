@@ -8,13 +8,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.example.vitsi.R
-import com.example.vitsi.models.local.LocalVideo
-import com.example.vitsi.models.upload.Progress
+import com.example.vitsi.domain.local.LocalVideo
+import com.example.vitsi.domain.upload.Progress
 import com.example.vitsi.utils.ImageUtils
 import com.example.vitsi.utils.ResUtils
 import com.example.vitsi.utils.SystemBarColors
 import com.example.vitsi.utils.ViewUtils
-import com.example.vitsi.utils.architecture.BaseFragment
+import com.example.vitsi.presentation.architecture.BaseFragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.vitsi.databinding.FragmentPostAudioBinding

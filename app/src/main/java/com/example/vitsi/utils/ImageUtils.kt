@@ -11,7 +11,6 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.google.android.material.progressindicator.CircularProgressIndicator
-import timber.log.Timber
 
 object ImageUtils {
 
@@ -41,7 +40,6 @@ object ImageUtils {
                 target: Target<T>?,
                 isFirstResource: Boolean
             ): Boolean {
-                Timber.e(e)
                 onLoadFailed()
                 return false
             }

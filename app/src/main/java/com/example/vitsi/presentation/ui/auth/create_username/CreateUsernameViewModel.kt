@@ -4,15 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.vitsi.*
-import com.example.vitsi.models.upload.Progress
-import com.example.vitsi.repo.network.auth.AuthRepo
-import com.example.vitsi.repo.network.name.NameRepo
-import com.example.vitsi.repo.network.user.UserRepo
-import com.example.vitsi.repo.network.name.DefaultNameRepo
-import com.example.vitsi.repo.network.user.DefaultUserRepo
-import com.example.vitsi.utils.architecture.BaseViewModel
+import com.example.vitsi.domain.upload.Progress
+import com.example.vitsi.data.network.auth.AuthRepo
+import com.example.vitsi.data.network.name.NameRepo
+import com.example.vitsi.data.network.user.UserRepo
+import com.example.vitsi.data.network.name.DefaultNameRepo
+import com.example.vitsi.data.network.user.DefaultUserRepo
+import com.example.vitsi.presentation.architecture.BaseViewModel
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class CreateUsernameViewModel(
     private val nameRepo: NameRepo = DefaultNameRepo(),

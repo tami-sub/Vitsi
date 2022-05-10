@@ -3,7 +3,6 @@ package com.example.vitsi.presentation.ui.audio
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.media.AudioFormat.ENCODING_PCM_16BIT
 import android.media.MediaRecorder
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -15,9 +14,8 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
-import com.example.vitsi.models.local.LocalVideo
+import com.example.vitsi.domain.local.LocalVideo
 import com.example.vitsi.databinding.AudioFragmentBinding
-import com.google.android.exoplayer2.C.ENCODING_PCM_16BIT
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 

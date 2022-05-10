@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vitsi.R
-import com.example.vitsi.models.user.User
+import com.example.vitsi.domain.user.User
 
 class UserAdapter(val context: Context, val userList: ArrayList<User>, val view:View):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {

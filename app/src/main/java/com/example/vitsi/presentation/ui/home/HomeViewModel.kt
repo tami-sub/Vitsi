@@ -3,13 +3,13 @@ package com.example.vitsi.presentation.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.vitsi.models.succeeded
-import com.example.vitsi.models.video.RemoteVideo
-import com.example.vitsi.repo.network.user.DefaultUserRepo
-import com.example.vitsi.repo.network.user.UserRepo
-import com.example.vitsi.repo.network.videos.DefaultVideosRepo
-import com.example.vitsi.repo.network.videos.VideosRepo
-import com.example.vitsi.utils.architecture.BaseViewModel
+import com.example.vitsi.domain.succeeded
+import com.example.vitsi.domain.audio.RemoteAudio
+import com.example.vitsi.data.network.user.DefaultUserRepo
+import com.example.vitsi.data.network.user.UserRepo
+import com.example.vitsi.data.network.videos.DefaultVideosRepo
+import com.example.vitsi.data.network.videos.VideosRepo
+import com.example.vitsi.presentation.architecture.BaseViewModel
 import kotlinx.coroutines.launch
 
 class HomeViewModel (
@@ -17,8 +17,8 @@ class HomeViewModel (
     val videosRepo: VideosRepo = DefaultVideosRepo()
 ): BaseViewModel() {
 
-    private var _listOfRemoteVideo = MutableLiveData<List<RemoteVideo>>()
-    val listOfRemoteVideo: LiveData<List<RemoteVideo>> = _listOfRemoteVideo
+    private var _listOfRemoteAudio = MutableLiveData<List<RemoteAudio>>()
+    val listOfRemoteAudio: LiveData<List<RemoteAudio>> = _listOfRemoteAudio
 
     private var isFetching = false
 
@@ -32,7 +32,7 @@ class HomeViewModel (
             viewModelScope.launch {
                 val result = videosRepo.fetchRandomAudios()
                 if (result.succeeded)
-                    _listOfRemoteVideo.value = result.tryData() ?: listOf()
+                    _listOfRemoteAudio.value = result.tryData() ?: listOf()
                 isFetching = false
             }
         }

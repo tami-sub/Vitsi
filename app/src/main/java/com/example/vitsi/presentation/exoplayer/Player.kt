@@ -3,21 +3,18 @@ package com.example.vitsi.presentation.exoplayer
 import android.content.Context
 import android.graphics.Color
 import android.net.Uri
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import com.example.vitsi.R
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
-import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.ui.PlayerView
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
-import com.google.android.exoplayer2.util.Util
-import timber.log.Timber
+
 
 class Player(
     private val simpleExoplayerView: PlayerView,
@@ -33,7 +30,6 @@ class Player(
     private var isPlaying = false
 
     fun init() {
-        Timber.d("Player.init has been called")
         createPlayer()
 
         playBtn.setOnClickListener {
@@ -42,7 +38,6 @@ class Player(
     }
 
     private fun createPlayer() {
-        Timber.d("Creating player")
         isCreated = true
 
         simpleExoPlayer = SimpleExoPlayer.Builder(context)
@@ -63,7 +58,6 @@ class Player(
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun resumePlayer() {
         if (isCreated && !isPlaying) {
-            Timber.d("Resuming player")
             isPlaying = true
             playBtn.visibility = View.GONE
             simpleExoPlayer?.seekTo(playbackPosition)
@@ -103,7 +97,6 @@ class Player(
 
     // Pauses or resumes the video
     fun changePlayerState() {
-        Timber.d("isCreated is $isCreated and isPlaying is $isPlaying")
         if (isCreated) {
             if (isPlaying) {
                 pausePlayer()
@@ -115,24 +108,20 @@ class Player(
 
     private val playerListener = object : Player.EventListener {
         override fun onPlayerError(error: ExoPlaybackException) {
-            Timber.e(error)
+            Log.d("joka", error.toString())
         }
 
         override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
             simpleExoplayerView.hideController()
             when (playbackState) {
                 Player.STATE_BUFFERING -> {
-                    Timber.d("State is buffering")
                 }
                 Player.STATE_READY -> {
-                    Timber.d("State is ready")
                 }
                 Player.STATE_ENDED -> {
-                    Timber.d("State is ended")
                     onVideoEnded(this@Player)
                 }
                 Player.STATE_IDLE -> {
-                    Timber.d("State is idle")
                 }
             }
         }

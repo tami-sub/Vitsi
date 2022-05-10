@@ -7,22 +7,22 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.vitsi.R
-import com.example.vitsi.databinding.LargeVideoLayoutBinding
-import com.example.vitsi.models.video.RemoteVideo
+import com.example.vitsi.databinding.LargeAudioLayoutBinding
+import com.example.vitsi.domain.audio.RemoteAudio
 import com.example.vitsi.presentation.ui.components.MainLargeAudio
-import com.example.vitsi.repo.network.user.DefaultUserRepo
-import com.example.vitsi.repo.network.videos.DefaultVideosRepo
+import com.example.vitsi.data.network.user.DefaultUserRepo
+import com.example.vitsi.data.network.videos.DefaultVideosRepo
 import com.example.vitsi.utils.BottomNavViewUtils.hideBottomNavBar
 import com.example.vitsi.utils.SystemBarColors
 import com.example.vitsi.utils.ViewUtils
-import com.example.vitsi.utils.architecture.BaseFragment
+import com.example.vitsi.presentation.architecture.BaseFragment
 
 
-class LargeAudioFragment : BaseFragment(R.layout.large_video_layout) {
+class LargeAudioFragment : BaseFragment(R.layout.large_audio_layout) {
 
-    private lateinit var binding: LargeVideoLayoutBinding
-    private lateinit var remoteVideo: RemoteVideo
-    private val args by navArgs<LargeVideoFragmentArgs>()
+    private lateinit var binding: LargeAudioLayoutBinding
+    private lateinit var remoteAudio: RemoteAudio
+    private val args by navArgs<LargeAudioFragmentArgs>()
 
     private val mainLargeVideo by lazy {
         MainLargeAudio(
@@ -33,8 +33,7 @@ class LargeAudioFragment : BaseFragment(R.layout.large_video_layout) {
             videosRepo = DefaultVideosRepo(),
             onPersonIconClicked = {
                 findNavController().navigate(
-                    LargeVideoFragmentDirections
-                        .actionLargeVideoFragmentToProfileWithAccountFragment(remoteVideo.authorUid)
+                    LargeAudioFragmentDirections.actionLargeaudioFragmentToProfileWithAccountFragment(remoteAudio.authorUid)
                 )
             },
             onVideoEnded = { player ->
@@ -50,8 +49,8 @@ class LargeAudioFragment : BaseFragment(R.layout.large_video_layout) {
             lifecycleOwner = viewLifecycleOwner
             isVideoLiked = mainLargeVideo.isVideoLiked
         }
-        remoteVideo = args.remoteVideo
-        mainLargeVideo.init(remoteVideo)
+        remoteAudio = args.remoteAudio
+        mainLargeVideo.init(remoteAudio)
     }
 
     override fun setUpLayout() {

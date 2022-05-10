@@ -5,16 +5,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.vitsi.*
 import com.example.vitsi.R
 import com.example.vitsi.databinding.SignUpPageBinding
-import com.example.vitsi.models.sign_up.GoogleBody
+import com.example.vitsi.domain.sign_up.GoogleBody
 import com.example.vitsi.utils.BottomNavViewUtils
-import com.example.vitsi.utils.architecture.BaseFragment
-import com.google.firebase.auth.*
-import kotlinx.coroutines.launch
+import com.example.vitsi.presentation.architecture.BaseFragment
 
 class SignUpFragment : BaseFragment(R.layout.sign_up_page) {
 
@@ -60,7 +56,6 @@ class SignUpFragment : BaseFragment(R.layout.sign_up_page) {
                 SignUpFragmentDirections.actionSignUpFragmentToCreateUsernameFragment(
                     liveCredential,
                     googleBody,
-                    null
                 )
             )
         }

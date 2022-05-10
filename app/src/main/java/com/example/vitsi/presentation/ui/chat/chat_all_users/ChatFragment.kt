@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vitsi.databinding.ChatFragmentBinding
-import com.example.vitsi.models.user.User
+import com.example.vitsi.domain.user.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database

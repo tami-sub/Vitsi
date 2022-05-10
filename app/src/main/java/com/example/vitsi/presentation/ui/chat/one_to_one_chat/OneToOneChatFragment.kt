@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vitsi.databinding.OneToOneChatFragmentBinding
-import com.example.vitsi.models.chat.Message
+import com.example.vitsi.domain.chat.Message
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 

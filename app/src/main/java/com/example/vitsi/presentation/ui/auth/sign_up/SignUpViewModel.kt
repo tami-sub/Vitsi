@@ -1,9 +1,8 @@
 package com.example.vitsi.presentation.ui.auth.sign_up
 
 import androidx.lifecycle.LiveData
-import com.example.vitsi.R
-import com.example.vitsi.repo.network.auth.AuthRepo
-import com.example.vitsi.utils.architecture.BaseViewModel
+import com.example.vitsi.data.network.auth.AuthRepo
+import com.example.vitsi.presentation.architecture.BaseViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth

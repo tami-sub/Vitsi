@@ -11,10 +11,10 @@ import androidx.navigation.fragment.navArgs
 import androidx.navigation.navOptions
 import com.example.vitsi.*
 import com.example.vitsi.databinding.FragmentCreateUsernameBinding
-import com.example.vitsi.models.upload.Progress
+import com.example.vitsi.domain.upload.Progress
 import com.example.vitsi.utils.KeyboardUtils
 import com.example.vitsi.utils.ResUtils
-import com.example.vitsi.utils.architecture.BaseFragment
+import com.example.vitsi.presentation.architecture.BaseFragment
 import kotlinx.coroutines.launch
 
 class CreateUsernameFragment : BaseFragment(R.layout.fragment_create_username) {

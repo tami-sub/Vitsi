@@ -17,7 +17,7 @@ import com.example.vitsi.utils.BottomNavViewUtils.showBottomNavBar
 import com.example.vitsi.utils.SystemBarColors
 import com.example.vitsi.utils.ViewUtils.changeSystemBars
 import com.example.vitsi.utils.ViewUtils.hideStatusBar
-import com.example.vitsi.utils.architecture.BaseFragment
+import com.example.vitsi.presentation.architecture.BaseFragment
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 
@@ -38,14 +38,14 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     }
 
     override fun setUpLiveData() {
-        viewModel.listOfRemoteVideo.observe(viewLifecycleOwner) { listOfRemoteVideo ->
-            val listOfGroup = listOfRemoteVideo?.map { remoteVideo ->
+        viewModel.listOfRemoteAudio.observe(viewLifecycleOwner) { listOfRemoteAudio ->
+            val listOfGroup = listOfRemoteAudio?.map { remoteAudio ->
                 val largeVideoGroup = LargeVideoGroup(
                     scope = lifecycleScope,
                     lifecycleOwner = viewLifecycleOwner,
                     userRepo = viewModel.userRepo,
                     videosRepo = viewModel.videosRepo,
-                    remoteVideo = remoteVideo,
+                    remoteAudio = remoteAudio,
                     onPersonIconClicked = { uid ->
                         findNavController().navigate(
                             HomeFragmentDirections

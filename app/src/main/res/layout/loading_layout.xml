@@ -5,7 +5,7 @@
 
     <data>
         <import type="androidx.lifecycle.LiveData"/>
-        <import type="com.example.vitsi.models.upload.Progress"/>
+        <import type="com.example.vitsi.domain.upload.Progress"/>
         <variable
             name="uploadStatus"
             type="LiveData&lt;Progress&gt;" />

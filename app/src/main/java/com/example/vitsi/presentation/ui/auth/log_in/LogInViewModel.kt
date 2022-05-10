@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.viewModelScope
 import com.example.vitsi.R
-import com.example.vitsi.models.succeeded
-import com.example.vitsi.repo.network.auth.AuthRepo
-import com.example.vitsi.utils.architecture.BaseViewModel
+import com.example.vitsi.domain.succeeded
+import com.example.vitsi.data.network.auth.AuthRepo
+import com.example.vitsi.presentation.architecture.BaseViewModel
 import com.google.firebase.auth.AuthCredential
 import kotlinx.coroutines.launch
 

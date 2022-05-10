@@ -9,7 +9,7 @@ import androidx.navigation.navOptions
 import com.example.vitsi.R
 import com.example.vitsi.databinding.FragmentLogInBinding
 import com.example.vitsi.utils.BottomNavViewUtils
-import com.example.vitsi.utils.architecture.BaseFragment
+import com.example.vitsi.presentation.architecture.BaseFragment
 
 class LoginFragment : BaseFragment(R.layout.fragment_log_in) {
 

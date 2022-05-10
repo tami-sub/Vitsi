@@ -2,19 +2,16 @@ package com.example.vitsi.presentation.ui.profile.with_account
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.vitsi.*
 import com.example.vitsi.databinding.FragmentProfileWithAccountBinding
-import com.example.vitsi.models.video.VideoType
 import com.example.vitsi.utils.BottomNavViewUtils.showBottomNavBar
 import com.example.vitsi.utils.ImageUtils.loadGlideImage
 import com.example.vitsi.utils.SystemBarColors
 import com.example.vitsi.utils.ViewUtils
-import com.example.vitsi.utils.architecture.BaseFragment
+import com.example.vitsi.presentation.architecture.BaseFragment
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import timber.log.Timber

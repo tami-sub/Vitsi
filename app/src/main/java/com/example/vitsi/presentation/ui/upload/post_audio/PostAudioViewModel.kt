@@ -6,12 +6,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.vitsi.R
-import com.example.vitsi.models.local.LocalVideo
-import com.example.vitsi.models.succeeded
-import com.example.vitsi.models.upload.Progress
-import com.example.vitsi.repo.network.storage.StorageRepo
-import com.example.vitsi.repo.network.videos.DefaultVideosRepo
-import com.example.vitsi.utils.architecture.BaseViewModel
+import com.example.vitsi.domain.local.LocalVideo
+import com.example.vitsi.domain.succeeded
+import com.example.vitsi.domain.upload.Progress
+import com.example.vitsi.data.network.storage.StorageRepo
+import com.example.vitsi.data.network.videos.DefaultVideosRepo
+import com.example.vitsi.presentation.architecture.BaseViewModel
 import kotlinx.coroutines.launch
 
 class PostAudioViewModel : BaseViewModel() {

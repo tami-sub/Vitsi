@@ -1,12 +1,9 @@
 package com.example.vitsi.utils
 
-import timber.log.Timber
-
 object NumbersUtils {
 
     fun formatCount(count: Int): String {
         val stringCount = count.toString()
-        Timber.d("count is $count")
         return when {
             count > 1_000_000_000 -> "${stringCount[0]}.${stringCount[1]}B"
             count > 100_000_000 -> "${stringCount.take(3)}.${stringCount[3]}M"

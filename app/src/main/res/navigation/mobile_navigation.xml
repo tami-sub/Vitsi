@@ -41,11 +41,7 @@
             app:nullable="true" />
         <argument
             android:name="googleBody"
-            app:argType="com.example.vitsi.models.sign_up.GoogleBody"
-            app:nullable="true" />
-        <argument
-            android:name="emailBody"
-            app:argType="com.example.vitsi.models.sign_up.EmailBody"
+            app:argType="com.example.vitsi.domain.sign_up.GoogleBody"
             app:nullable="true" />
     </fragment>
     <fragment
@@ -74,10 +70,10 @@
         android:id="@+id/largeaudioFragment"
         android:name="com.example.vitsi.presentation.ui.large_video.LargeAudioFragment"
         android:label="LargeaudioFragment"
-        tools:layout="@layout/large_video_layout">
+        tools:layout="@layout/large_audio_layout">
         <argument
-            android:name="remoteVideo"
-            app:argType="com.example.vitsi.models.video.RemoteVideo" />
+            android:name="remoteAudio"
+            app:argType="com.example.vitsi.domain.audio.RemoteAudio" />
         <action
             android:id="@+id/action_largeaudioFragment_to_profileWithAccountFragment"
             app:destination="@id/profileWithAccountFragment" />
@@ -90,7 +86,7 @@
         tools:layout="@layout/fragment_post_audio">
         <argument
             android:name="localVideo"
-            app:argType="com.example.vitsi.models.local.LocalVideo" />
+            app:argType="com.example.vitsi.domain.local.LocalVideo" />
         <action
             android:id="@+id/action_postAudioFragment_to_largeaudioFragment"
             app:destination="@id/largeaudioFragment"

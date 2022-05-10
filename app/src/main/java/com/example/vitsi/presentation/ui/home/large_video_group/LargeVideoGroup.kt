@@ -6,11 +6,11 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
 import com.example.vitsi.R
-import com.example.vitsi.databinding.LargeVideoLayoutBinding
-import com.example.vitsi.models.video.RemoteVideo
+import com.example.vitsi.databinding.LargeAudioLayoutBinding
+import com.example.vitsi.domain.audio.RemoteAudio
 import com.example.vitsi.presentation.ui.components.MainLargeAudio
-import com.example.vitsi.repo.network.user.UserRepo
-import com.example.vitsi.repo.network.videos.VideosRepo
+import com.example.vitsi.data.network.user.UserRepo
+import com.example.vitsi.data.network.videos.VideosRepo
 import com.xwray.groupie.viewbinding.BindableItem
 import com.xwray.groupie.viewbinding.GroupieViewHolder
 import kotlinx.coroutines.CoroutineScope
@@ -20,14 +20,14 @@ class LargeVideoGroup(
     private val lifecycleOwner: LifecycleOwner,
     private val userRepo: UserRepo,
     private val videosRepo: VideosRepo,
-    private val remoteVideo: RemoteVideo,
+    private val remoteAudio: RemoteAudio,
     private val onPersonIconClicked: (String) -> Unit,
     private val onVideoEnded: (LargeVideoGroup) -> Unit
-) : BindableItem<LargeVideoLayoutBinding>() {
+) : BindableItem<LargeAudioLayoutBinding>() {
 
     private lateinit var mainLargeVideo: MainLargeAudio
 
-    override fun bind(binding: LargeVideoLayoutBinding, position: Int) {
+    override fun bind(binding: LargeAudioLayoutBinding, position: Int) {
         mainLargeVideo = MainLargeAudio(
             scope = scope,
             lifecycle = lifecycleOwner.lifecycle,
@@ -42,22 +42,22 @@ class LargeVideoGroup(
         binding.isVideoLiked = mainLargeVideo.isVideoLiked
     }
 
-    override fun onViewAttachedToWindow(viewHolder: GroupieViewHolder<LargeVideoLayoutBinding>) {
+    override fun onViewAttachedToWindow(viewHolder: GroupieViewHolder<LargeAudioLayoutBinding>) {
         super.onViewAttachedToWindow(viewHolder)
-        mainLargeVideo.init(remoteVideo)
+        mainLargeVideo.init(remoteAudio)
         lifecycleOwner.lifecycle.addObserver(lifecycleObserver)
     }
 
-    override fun onViewDetachedFromWindow(viewHolder: GroupieViewHolder<LargeVideoLayoutBinding>) {
+    override fun onViewDetachedFromWindow(viewHolder: GroupieViewHolder<LargeAudioLayoutBinding>) {
         super.onViewDetachedFromWindow(viewHolder)
         mainLargeVideo.destroy()
         lifecycleOwner.lifecycle.removeObserver(lifecycleObserver)
     }
 
     override fun initializeViewBinding(view: View) =
-        LargeVideoLayoutBinding.bind(view)
+        LargeAudioLayoutBinding.bind(view)
 
-    override fun getLayout() = R.layout.large_video_layout
+    override fun getLayout() = R.layout.large_audio_layout
 
     private val lifecycleObserver = object : LifecycleObserver {
         @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
