@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/audioFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/profileWithoutAccountFragment"
@@ -101,9 +101,6 @@
         <argument
             android:name="uid"
             app:argType="string" />
-        <action
-            android:id="@+id/action_profileWithAccountFragment_to_largeaudioFragment"
-            app:destination="@id/largeaudioFragment" />
     </fragment>
 
     <fragment

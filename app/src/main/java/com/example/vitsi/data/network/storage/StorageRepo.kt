@@ -12,7 +12,7 @@ import java.util.*
 class StorageRepo {
     private val fireStorage = Firebase.storage
 
-    suspend fun uploadVideo(localVideoUri: String?) = safeAccess {
+    suspend fun uploadAudio(localVideoUri: String?) = safeAccess {
         val storageRefer = fireStorage.getReference("audios/${Firebase.auth.uid}/${UUID.randomUUID()}")
         val uploadTask = storageRefer.putFile(Uri.fromFile(File(localVideoUri!!))!!).await()
         uploadTask.storage.downloadUrl.await()

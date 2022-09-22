@@ -10,6 +10,7 @@ import java.lang.Thread.sleep
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sleep(2000)
         startActivity(Intent(applicationContext, MainActivity::class.java))
         finish()
     }

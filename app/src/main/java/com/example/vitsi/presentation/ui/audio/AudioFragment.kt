@@ -33,7 +33,6 @@ class AudioFragment : Fragment() {
     private lateinit var binding: AudioFragmentBinding
     private lateinit var mFileName: String
     private var mRecorder: MediaRecorder? = null
-    private val fireStorage = Firebase.storage
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +41,9 @@ class AudioFragment : Fragment() {
         binding = AudioFragmentBinding.inflate(layoutInflater)
 
         mFileName = requireActivity().externalCacheDir!!.absolutePath
-        mFileName += "/" + UUID.randomUUID().toString() + ".mp3"
+        mFileName += "/" + UUID.randomUUID().toString()
+        //+ ".mp3"
+
 
         with(binding) {
             btnStart.setOnClickListener {

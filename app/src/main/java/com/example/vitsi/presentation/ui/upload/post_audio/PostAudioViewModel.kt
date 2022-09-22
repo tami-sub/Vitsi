@@ -24,7 +24,7 @@ class PostAudioViewModel : BaseViewModel() {
     private val _uploadStatus = MutableLiveData(Progress.IDLE)
     val uploadStatus: LiveData<Progress> = _uploadStatus
 
-    fun postAudio(context: Context, localVideo: LocalVideo) {
+    fun postAudio(context: Context, localAudio: LocalVideo) {
         val descriptionText = liveDescription.value ?: run {
             showMessage(R.string.audio_description_needed)
             return
@@ -34,7 +34,7 @@ class PostAudioViewModel : BaseViewModel() {
 
         viewModelScope.launch {
 
-            val result = storageRepo.uploadVideo(localVideo.filePath)
+            val result = storageRepo.uploadAudio(localAudio.filePath)
             if (!result.succeeded) {
                 _uploadStatus.value = Progress.FAILED
                 Log.d("joka", "S H I I I T")
@@ -49,7 +49,7 @@ class PostAudioViewModel : BaseViewModel() {
                 isPrivate = false,
                 videoUrl = downloadUrl,
                 descriptionText = descriptionText,
-                duration = localVideo.duration,
+                duration = localAudio.duration,
                 onComplete = { succeeded ->
                     _uploadStatus.value = if (succeeded) Progress.DONE else Progress.FAILED
                 }
